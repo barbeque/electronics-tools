@@ -9,7 +9,7 @@ with open('machinist-esr.tsv', 'r') as f:
 	rd = csv.reader(f, delimiter='\t')
 	for r in rd:
 		row.append(r)
-		print(r)
+		# print(r)
 
 capacitance = int(sys.argv[1])
 voltage = int(sys.argv[2])
