@@ -47,7 +47,7 @@ for i in range(0, len(row) - 1):
 				# judgment mode
 				if maximum_esr < esr:
 					print(f'Bad (max {maximum_esr})')
-				elif abs(maximum_esr - esr) < 0.3:
+				elif abs(maximum_esr - esr) < 0.03:
 					print(f'Marginal (max {maximum_esr})')
 				else:
 					print(f'Good (max {maximum_esr})')
