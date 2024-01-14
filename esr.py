@@ -11,7 +11,12 @@ with open('machinist-esr.tsv', 'r') as f:
 		row.append(r)
 		# print(r)
 
-capacitance = int(sys.argv[1])
+# HACK
+if '.' in sys.argv[1]:
+	capacitance = float(sys.argv[1])
+else:
+	capacitance = int(sys.argv[1])
+	
 voltage = int(sys.argv[2])
 
 if(len(sys.argv) > 3):
