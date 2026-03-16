@@ -7,7 +7,7 @@ if len(sys.argv) < 2:
 with open(sys.argv[1], 'rb') as f:
     rom = bytes(f.read())
 
-def decode_mapper(mapper):
+def decode_mapper(mapper : int):
     MAPPERS = {
         0: "Nintendo NROM",
         1: "Nintendo MMC1",
@@ -22,7 +22,7 @@ def decode_mapper(mapper):
     else:
         return "???"
 
-def dump_ines(rom):
+def dump_ines(rom : bytes):
     if rom[0:4] != b'NES\x1a':
        print(f'Invalid ROM header "{ rom[0:4] }", this is not iNES?')
        return
