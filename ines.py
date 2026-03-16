@@ -8,23 +8,19 @@ with open(sys.argv[1], 'rb') as f:
     rom = bytes(f.read())
 
 def decode_mapper(mapper):
-    match mapper:
-        case 0:
-            return "Nintendo NROM"
-        case 1:
-            return "Nintendo MMC1"
-        case 2:
-            return "Nintendo UxROM"
-        case 4:
-            return "Nintendo MMC3"
-        case 10:
-            return "Nintendo MMC4"
-        case 25:
-            return "Konami VRC4"
-        case 167:
-            return "Subor Educational Computer"
-        case _:
-            return "???"
+    MAPPERS = {
+        0: "Nintendo NROM",
+        1: "Nintendo MMC1",
+        2: "Nintendo UxROM",
+        4: "Nintendo MMC3",
+        10: "Nintendo MMC4",
+        25: "Konami VRC4",
+        167: "Subor Educational Computer"
+    }
+    if mapper in MAPPERS:
+        return MAPPERS[mapper]
+    else:
+        return "???"
 
 def dump_ines(rom):
     if rom[0:4] != b'NES\x1a':
